@@ -1,0 +1,17 @@
+program: expr ;
+
+expr:
+    paren
+  | add
+  | mult
+  | num
+  ;
+
+paren: '(' expr ')' ;
+
+add: expr '+' expr {2, left};
+
+mult: expr '*' expr {1, left};
+
+terminals
+num: /[0-9]+/ ;
